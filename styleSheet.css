@@ -78,22 +78,6 @@ a.logoBut {
     padding-left: 0px;
 }
 
-songlist{
-    text-align: center;
-    color: #B9E6FF;
-    background-color: #656565;
-    border-style: solid;
-    border-width: 3px;
-    border-color: #DB88F2;
-    margin-left:15%;
-    margin-right:15%;
-    margin-bottom: 2%;
-    margin-top: 2%;
-}
-heading,artist,title,release,genre{ 
-     display : block; 
-
-}
 image{
     padding-bottom: 2%;
 }
