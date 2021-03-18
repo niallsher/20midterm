@@ -4,6 +4,65 @@
 		<link rel="stylesheet" type = "text/css" href="styleSheet.css">
 	</head>
 	<body>
+        <script language="javascript">
+            var orderarray = [];
+            // var cartarray = [];
+            window.sessionStorage;
+            
+
+
+            function WatchProduct(name, price, quant)
+            {
+                this.name = name;
+                this.price = price;
+                this.quant = quant;
+            }
+
+            function makeWatch(array, name, price)
+            {
+                need_new = checkOrders(array, name);
+                if (need_new) {
+                    new_watch = new WatchProduct(name, price, 1);
+                    array.push(new_watch);
+                }
+                // return orderarray;
+            }
+
+            function checkOrders(array, name)
+            {
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].name == name) {
+                        array[i].quant++;
+                        return false;
+                    }
+                }
+                var isCart = sessionStorage.getItem("cartarray");
+                if (isCart) {
+                    var cartJarray = JSON.parse(sessionStorage.getItem("cartarray"));
+                    for (var i = 0; i < cartJarray.length; i++) {
+                        if (cartJarray[i].name == name) {
+                            cartJarray[i].quant++;
+                            sessionStorage.setItem("cartarray", JSON.stringify(cartJarray));
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+
+            function OrderWatch(element)
+            {
+                name = document.getElementById(element + "-name").innerHTML;
+                price = document.getElementById(element + "-price").innerHTML;
+
+                makeWatch(orderarray, name, price);
+                sessionStorage.setItem("orderarray", JSON.stringify(orderarray));
+            }
+
+
+        </script>
+
+
 		<header>
                
                 <a class = "logoBut" href ="index.html" align ="left"> 
@@ -18,5 +77,31 @@
                 <a class="current" href="productsWatches.html">Watches</a></li>
     			<a href="cart.html">Cart</a></li>
 		</header> 
+
+        <h3>Our Watches</h3> <br />
+
+        <div id='watches'>
+            <div id='watch1'>
+                <img src='watch1.jpg'>
+                <p id='watch1-name'>Watch 1</p>
+                <p id='watch1-price'>$50.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-watch" onclick="OrderWatch('watch1')">Add to cart</a>
+                </div>
+            </div>
+
+            <div id='watch2'>
+                <img src='watch2.jpg'>
+                <p id='watch2-name'>Watch 2</p>
+                <p id='watch2-price'>$35.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-watch" onclick="OrderWatch('watch2')">Add to cart</a>
+                </div>
+            </div>
+
+            
+        </div>
     </body>
 </html>

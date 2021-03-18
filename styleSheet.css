@@ -1,3 +1,4 @@
+
 body{
     margin-left: ;
     margin-right ;
@@ -91,3 +92,68 @@ name{
     margin-top: 2%;
     
 }
+
+a#order-watch {
+    /*text-decoration: none;
+    color: #fff;
+    background-color: #3719cf;
+    font-size: 24px;*/
+    padding: 5px 20px;
+    f/*ont-family: Helvetica, Arial, "sans-serif";
+    border-radius: 7px;
+    border: 1px solid #dfdfe5;
+    display:block;
+    width: 180px;
+    text-align:center;
+    position: relative;
+    margin-left: auto; margin-right: auto;
+    box-sizing: border-box;*/
+}
+
+a#order-watch:hover {
+    /*color: #21e0ed;
+    background-color: #3719cf;
+    border: 1px solid #3719cf;*/
+    text-decoration: none;
+
+}
+
+#watches img {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    box-sizing: border-box;
+}
+
+#watches div {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+#cart {
+    box-sizing: border-box;
+    margin-right: auto;
+    margin-left: auto;
+    margin: 20px;
+    /*border: 2px solid #000;*/
+    position: relative;
+    /*height: 200px;*/
+}
+
+#cart table {
+    /*position: absolute;*/
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid #000;
+    padding: 5px;
+    /*min-height: 70px;*/
+
+}
+
+#resetcart {
+    position: relative;
+
+}
+
+
