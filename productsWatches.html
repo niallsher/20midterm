@@ -8,9 +8,6 @@
             var orderarray = [];
             // var cartarray = [];
             window.sessionStorage;
-            
-
-
             function WatchProduct(name, price, quant)
             {
                 this.name = name;
@@ -58,13 +55,8 @@
                 makeWatch(orderarray, name, price);
                 sessionStorage.setItem("orderarray", JSON.stringify(orderarray));
             }
-
-
         </script>
-
-
 		<header>
-               
                 <a class = "logoBut" href ="index.html" align ="left"> 
                     <img id = "logo" align="left" src="logo.jpg">
                 </a>
@@ -77,13 +69,14 @@
                 <a class="current" href="productsWatches.html">Watches</a></li>
     			<a href="cart.html">Cart</a></li>
 		</header> 
-
-        <h3>Our Watches</h3> <br />
-
+		<br>
+        <h3>Our Watches</h3>
+		<br>
+		
         <div id='watches'>
-
-
+			
         <div class='leftCol'>
+			<hr #808080>
             <div id='watch1'>
                 <img src='watch1.jpg'>
                 <p id='watch1-name'>Watch 1</p>
@@ -93,7 +86,7 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch1')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
 
             <div id='watch4'>
                 <img src='watch4.jpg'>
@@ -104,7 +97,7 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch4')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
 
             <div id='watch7'>
                 <img src='watch7.jpg'>
@@ -115,9 +108,11 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch7')">Add to cart</a>
                 </div>
             </div>
+			<hr #808080>
         </div>
 
         <div class='midCol'>
+			<hr #808080>
             <div id='watch2'>
                 <img src='watch2.jpg'>
                 <p id='watch2-name'>Watch 2</p>
@@ -127,7 +122,7 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch2')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
             <div id='watch5'>
                 <img src='watch5.jpg'>
                 <p id='watch5-name'>Watch 5</p>
@@ -137,7 +132,7 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch5')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
             <div id='watch8'>
                 <img src='watch8.jpg'>
                 <p id='watch8-name'>Watch 8</p>
@@ -147,10 +142,12 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch8')">Add to cart</a>
                 </div>
             </div>
+			<hr #808080>
         </div>
 
 
         <div class ='rightCol'>
+			<hr #808080>
             <div id='watch3'>
                 <img src='watch3.jpg'>
                 <p id='watch3-name'>Watch 3</p>
@@ -160,7 +157,7 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch3')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
 
             <div id='watch6'>
                 <img src='watch6.jpg'>
@@ -171,6 +168,7 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch6')">Add to cart</a>
                 </div>
             </div>
+			<hr #808080>
 
             <div id='watch9'>
                 <img src='watch9.jpg'>
@@ -181,16 +179,8 @@
                     <a href="#" id="order-watch" onclick="OrderWatch('watch9')">Add to cart</a>
                 </div>
             </div>
-
-
-        </div>
-
-
-
-
-
-
-            
+			<hr #808080>
+        </div>  
         </div>
     </body>
 </html>
