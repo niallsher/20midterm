@@ -4,6 +4,59 @@
 		<link rel="stylesheet" type = "text/css" href="styleSheet.css">
 	</head>
 	<body>
+		<script language="javascript">
+            var orderarray = [];
+            // var cartarray = [];
+            window.sessionStorage;
+            function ringProduct(name, price, quant)
+            {
+                this.name = name;
+                this.price = price;
+                this.quant = quant;
+            }
+
+            function makeRing(array, name, price)
+            {
+                need_new = checkOrders(array, name);
+                if (need_new) {
+                    new_ring = new ringProduct(name, price, 1);
+                    array.push(new_ring);
+                }
+                // return orderarray;
+            }
+
+            function checkOrders(array, name)
+            {
+                for (var i = 0; i < array.length; i++) {
+                    if (array[i].name == name) {
+                        array[i].quant++;
+                        return false;
+                    }
+                }
+                var isCart = sessionStorage.getItem("cartarray");
+                if (isCart) {
+                    var cartJarray = JSON.parse(sessionStorage.getItem("cartarray"));
+                    for (var i = 0; i < cartJarray.length; i++) {
+                        if (cartJarray[i].name == name) {
+                            cartJarray[i].quant++;
+                            sessionStorage.setItem("cartarray", JSON.stringify(cartJarray));
+                            return false;
+                        }
+                    }
+                }
+                return true;
+            }
+
+            function OrderRing(element)
+            {
+                name = document.getElementById(element + "-name").innerHTML;
+                price = document.getElementById(element + "-price").innerHTML;
+
+                makeRing(orderarray, name, price);
+                sessionStorage.setItem("orderarray", JSON.stringify(orderarray));
+            }
+
+        </script>
 		<header>
                
                 <a class = "logoBut" href ="index.html" align ="left"> 
@@ -18,6 +71,112 @@
                 <a href="productsWatches.html">Watches</a></li>
     			<a href="cart.html">Cart</a></li>
 		</header>
+		<br>
+		<h3>Our Rings</h3> 
+		<br>
 		
+        <div id='rings'>
+			
+        <div class='leftCol'>
+			<hr #808080>
+            <div id='ring1'>
+                <img src='ring1.jpg'>
+                <p id='ring1-name'>Ring 1</p>
+                <p id='ring1-price'>$1400.00</p>
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring1')">Add to cart</a>
+                </div>
+            </div>
+			
+			<hr #808080>
+            <div id='ring4'>
+                <img src='ring4.jpg'>
+                <p id='ring4-name'>Ring 4</p>
+                <p id='ring4-price'>$1380.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring4')">Add to cart</a>
+                </div>
+            </div>
+			<hr #808080>
+			
+            <div id='ring7'>
+                <img src='ring7.jpg'>
+                <p id='ring7-name'>Ring 7</p>
+                <p id='ring7-price'>$1350.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring7')">Add to cart</a>
+                </div>
+            </div>
+			<hr #808080>
+        </div>
+        <div class='midCol'>
+			<hr #808080>
+            <div id='ring2'>
+                <img src='ring2.jpg'>
+                <p id='ring2-name'>Ring 2</p>
+                <p id='ring2-price'>$1245.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring2')">Add to cart</a>
+                </div>
+            </div>
+			<hr #808080>
+            <div id='ring5'>
+                <img src='ring5.jpg'>
+                <p id='ring5-name'>Ring 5</p>
+                <p id='ring5-price'>$1460.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring5')">Add to cart</a>
+                </div>
+            </div>
+			<hr #808080>
+            <div id='ring8'>
+                <img src='ring8.jpg'>
+                <p id='ring8-name'>Ring 8</p>
+                <p id='ring8-price'>$1440.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring8')">Add to cart</a>
+                </div>
+            </div>
+			<hr #808080>
+        </div>
+        <div class ='rightCol'>
+			<hr #808080>
+            <div id='ring3'>
+                <img src='ring3.jpg'>
+                <p id='ring3-name'>Ring 3</p>
+                <p id='ring3-price'>$935.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring3')">Add to cart</a>
+                </div>
+            </div>
+			<hr #808080>
+            <div id='ring6'>
+                <img src='ring6.jpg'>
+                <p id='ring6-name'>Ring 6</p>
+                <p id='ring6-price'>$1235.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring6')">Add to cart</a>
+                </div>
+            </div>
+			<hr #808080>
+            <div id='ring9'>
+                <img src='Ring9.jpg'>
+                <p id='ring9-name'>Ring 9</p>
+                <p id='ring9-price'>$925.00</p>
+
+                <div id='order'>
+                    <a href="#" id="order-ring" onclick="OrderRing('ring9')">Add to cart</a>
+                </div>
+            </div>
+			<hr #808080>
+        </div>
+        </div>
     </body>
 </html>
