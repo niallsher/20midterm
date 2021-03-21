@@ -18,120 +18,169 @@
                 <a href="productsWatches.html">Watches</a></li>
     			<a href="cart.html">Cart</a></li>
 		</header>
-        
-    <h3>Our Necklaces</h3> <br />
+		<script language="javascript">
+			var orderarray = [];
+			// var cartarray = [];
+			window.sessionStorage;
+			function NecklaceProduct(name, price, quant)
+			{
+				this.name = name;
+				this.price = price;
+				this.quant = quant;
+			}
+
+			function makeNecklace(array, name, price)
+			{
+				need_new = checkOrders(array, name);
+				if (need_new) {
+					new_necklace = new NecklaceProduct(name, price, 1);
+					array.push(new_necklace);
+				}
+				// return orderarray;
+			}
+
+			function checkOrders(array, name)
+			{
+				for (var i = 0; i < array.length; i++) {
+					if (array[i].name == name) {
+						array[i].quant++;
+						return false;
+					}
+				}
+				var isCart = sessionStorage.getItem("cartarray");
+				if (isCart) {
+					var cartJarray = JSON.parse(sessionStorage.getItem("cartarray"));
+					for (var i = 0; i < cartJarray.length; i++) {
+						if (cartJarray[i].name == name) {
+							cartJarray[i].quant++;
+							sessionStorage.setItem("cartarray", JSON.stringify(cartJarray));
+							return false;
+						}
+					}
+				}
+				return true;
+			}
+
+			function OrderNecklace(element)
+			{
+				name = document.getElementById(element + "-name").innerHTML;
+				price = document.getElementById(element + "-price").innerHTML;
+
+				makeNecklace(orderarray, name, price);
+				sessionStorage.setItem("orderarray", JSON.stringify(orderarray));
+			}
+		</script>
+        <br>
+    <h3>Our Necklaces</h3> <br>
 
         <div id='necklaces'>
 
-
         <div class='leftCol'>
+			<hr #808080>
             <div id='necklace1'>
                 <img src='necklace1.jpg'>
                 <p id='necklace1-name'>Necklace 1</p>
-                <p id='necklace1-price'>$50.00</p>
+                <p id='necklace1-price'>$250.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('necklace1')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace1')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
 
             <div id='necklace4'>
                 <img src='necklace4.jpg'>
-                <p id='necklace4-name'>Watch 4</p>
-                <p id='necklace4-price'>$50.00</p>
+                <p id='necklace4-name'>Necklace 4</p>
+                <p id='necklace4-price'>$450.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('necklace4')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace4')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
 
             <div id='necklace7'>
                 <img src='necklace7.jpg'>
-                <p id='necklace7-name'>Watch 7</p>
-                <p id='necklace7-price'>$35.00</p>
+                <p id='necklace7-name'>Necklace 7</p>
+                <p id='necklace7-price'>$835.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('necklace7')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace7')">Add to cart</a>
                 </div>
             </div>
+			<hr #808080>
         </div>
 
         <div class='midCol'>
+			<hr #808080>
             <div id='necklace2'>
                 <img src='necklace2.jpg'>
-                <p id='necklace2-name'>Watch 2</p>
-                <p id='necklace2-price'>$35.00</p>
+                <p id='necklace2-name'>Necklace 2</p>
+                <p id='necklace2-price'>$1335.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('necklace2')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace2')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
             <div id='necklace5'>
                 <img src='necklace5.jpg'>
-                <p id='necklace5-name'>Watch 5</p>
-                <p id='necklace5-price'>$50.00</p>
+                <p id='necklace5-name'>Necklace 5</p>
+                <p id='necklace5-price'>$1250.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('necklace5')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace5')">Add to cart</a>
                 </div>
             </div>
-
+			<hr #808080>
             <div id='necklace8'>
                 <img src='necklace8.jpg'>
-                <p id='necklace8-name'>Watch 8</p>
-                <p id='necklace8-price'>$35.00</p>
+                <p id='necklace8-name'>Necklace 8</p>
+                <p id='necklace8-price'>$1835.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('necklace8')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace8')">Add to cart</a>
                 </div>
             </div>
+			<hr #808080>
         </div>
 
 
         <div class ='rightCol'>
-            <div id='necklace3'>
+			<hr #808080>
+			<div id='necklace3'>
                 <img src='necklace3.jpg'>
                 <p id='necklace3-name'>Necklace 3</p>
-                <p id='necklace3-price'>$35.00</p>
+                <p id='necklace3-price'>$925.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('watch3')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace3')">Add to cart</a>
                 </div>
             </div>
-
-
+			<hr #808080>
+			
             <div id='necklace6'>
                 <img src='necklace6.jpg'>
                 <p id='necklace6-name'>Necklace 6</p>
-                <p id='necklace6-price'>$35.00</p>
+                <p id='necklace6-price'>$1315.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('necklace6')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace6')">Add to cart</a>
                 </div>
             </div>
+			<hr #808080>
 
             <div id='necklace9'>
                 <img src='necklace9.jpg'>
-                <p id='necklace9-name'>Watch 9</p>
-                <p id='necklace9-price'>$35.00</p>
+                <p id='necklace9-name'>Necklace 9</p>
+                <p id='necklace9-price'>$1615.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderWatch('necklace9')">Add to cart</a>
+                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace9')">Add to cart</a>
                 </div>
             </div>
-
-
+			<hr #808080>
         </div>
-
-
-
-
-
-
-            
         </div>
     </body>
 </html>
