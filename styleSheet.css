@@ -127,6 +127,16 @@ a#order-watch:hover {
     box-sizing: border-box;
 }
 
+
+#necklaces img {
+    max-width: 300px;
+    max-height: 300px;
+    display: inline-block;
+    width: 300px;
+    height: auto;
+    box-sizing: border-box;
+}
+
 .leftCol, .midCol, .rightCol {
     float: left;
     width: 33%;
@@ -146,7 +156,11 @@ a#order-watch:hover {
     padding: 20px;
 }
 
-
+#necklaces div {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+}
 
 
 /*#leftCol div {
