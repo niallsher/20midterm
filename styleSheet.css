@@ -1,6 +1,4 @@
 body{
-    margin-left: ;
-    margin-right ;
     font-size: ;
     text-align: center;
     background-color: ;
@@ -10,17 +8,17 @@ body{
 }
 
 header{
-    padding-left: ;
-    padding-right: ;
     padding-bottom: 20px;
-    padding-top: 10px;
-    background-color: ;
-    color: ;
-    border-color: ;
-    border-style: ;
-    width: ;
+    top: 0;
+    width: 100%;
     text-align: center; 
     border: 5px solid;
+    position: fixed;
+    height: 18%;
+    background-color: #FFFFFF;
+}
+h3{
+    padding-top: 12%;
 }
 
 #logo {
@@ -28,7 +26,6 @@ header{
     padding-left: 5%;
     padding-top: 10px;
 }
-
 
 
 h1{
@@ -109,10 +106,18 @@ a#order-watch {
     box-sizing: border-box;*/
 }
 
+a#order-ring {
+    padding: 5px 20px;
+}
+
 a#order-watch:hover {
     /*color: #21e0ed;
     background-color: #3719cf;
     border: 1px solid #3719cf;*/
+    text-decoration: none;
+
+}
+a#order-ring:hover {
     text-decoration: none;
 
 }
@@ -127,8 +132,16 @@ a#order-watch:hover {
     box-sizing: border-box;
 }
 
-
 #necklaces img {
+    max-width: 300px;
+    max-height: 300px;
+    display: inline-block;
+    width: 300px;
+    height: auto;
+    box-sizing: border-box;
+}
+
+#rings img {
     max-width: 300px;
     max-height: 300px;
     display: inline-block;
@@ -140,15 +153,12 @@ a#order-watch:hover {
 .leftCol, .midCol, .rightCol {
     float: left;
     width: 33%;
-    color: white;
+    color: #000000;
     padding: 10px;
     text-align: center;
+    border-right: 1px solid #808080;
+    
 }
-
-
-
-
-
 
 #watches div {
     display: inline-block;
@@ -162,6 +172,11 @@ a#order-watch:hover {
     padding: 20px;
 }
 
+#rings div {
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 20px;
+}
 
 /*#leftCol div {
     float: left;
@@ -200,3 +215,75 @@ a#order-watch:hover {
     position: relative;
 
 }
+
+p{
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.text {
+    font-size: 20px;
+    padding-left: 20px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 3%;
+    padding-top: 3%;
+}
+.container img{
+    width: 80%;
+}
+.image {
+    width: 80%;
+    padding-right: 3%;
+}
+.contact{
+    border: #FFFFFF;
+}
+.contact:hover{
+    text-decoration: none;
+}
+
+.checked {
+  color: #000000;
+}
+
+.homeShop{
+    padding-top: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    background-image: url("ring1.jpg");
+    background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#homeShop1{
+    background-image: url("ring1.jpg");
+    padding-left: 6.5%;
+    padding-right: 6.5%;
+}
+
+#homeShop2{
+    background-image: url("necklace1.jpg");
+}
+
+#homeShop3{
+    background-image: url("watch2.jpg");
+}
+
+#shopBut{
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 10%;
+}
+
