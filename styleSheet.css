@@ -14,8 +14,17 @@ header{
     text-align: center; 
     border: 5px solid;
     position: fixed;
-    height: 18%;
+    height: auto;
     background-color: #FFFFFF;
+}
+
+header ul {
+    padding-bottom: 10px;
+}
+
+header ul li {
+    list-style: none;
+    display: inline-flex;
 }
 h3{
     padding-top: 12%;
@@ -77,6 +86,7 @@ a.logoBut {
 
 image{
     padding-bottom: 2%;
+    padding-top: 10px;
 }
 name{
     font-size: 20px;
@@ -178,18 +188,6 @@ a#order-ring:hover {
     padding: 20px;
 }
 
-/*#leftCol div {
-    float: left;
-    width: 20%;
-}
-
-#middleCol div {
-    width: 20%;
-}
-
-#rightCol div {
-    width: 20%;
-}*/
 
 #cart {
     box-sizing: border-box;
@@ -292,9 +290,35 @@ p{
      .header {
         text-align: center;
         float: none;
-        position: relative;
-        height: auto;
+        height: 50%;
+        display: block;
+        border: none;
+        width: 100%;
+        padding-bottom:20px;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-left: 20px;
+        margin: 0 60px;
     }
+
+
+    header ul li {
+        text-align: center;
+        list-style: none;
+        display: inline-flex;
+    }
+
+     .leftCol, .midCol, .rightCol {
+    float: none;
+    width: 100%;
+    color: #000000;
+    padding: 10px;
+    text-align: center;
+    border: 10px solid #808080;
+    margin-right: 10px;
+
+        
+}
 
   /*  .header {
         width: 100%;
@@ -310,7 +334,7 @@ p{
     .body{margin-left: 0;}*/
 }
 
-@media screen and (max-width: 400px) {
+/*@media screen and (max-width: 500px) {
     .header a{
         text-align: center;
         float: none;
@@ -323,7 +347,15 @@ p{
     padding: 10px;
     text-align: center;
     border-right: 1px solid #808080;
-        
-}
-}
+    }
 
+      .header {
+        text-align: center;
+        float: none;
+        height: 50%;
+        display: block;
+        border: none;
+        width: 100%;
+    }
+}
+*/
