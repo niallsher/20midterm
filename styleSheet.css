@@ -287,3 +287,43 @@ p{
     margin-top: 10%;
 }
 
+@media screen and (max-width: 700px) {
+
+     .header {
+        text-align: center;
+        float: none;
+        position: relative;
+        height: auto;
+    }
+
+  /*  .header {
+        width: 100%;
+        height: auto;
+        position: relative;
+        background-color: #FFFFFF;
+        border: none;
+        display: block;
+    }
+
+
+    .header a {float: left; text-align: center;}
+    .body{margin-left: 0;}*/
+}
+
+@media screen and (max-width: 400px) {
+    .header a{
+        text-align: center;
+        float: none;
+    }
+
+    .leftCol, .midCol, .rightCol {
+    float: none;
+    width: 100%;
+    color: #000000;
+    padding: 10px;
+    text-align: center;
+    border-right: 1px solid #808080;
+        
+}
+}
+
