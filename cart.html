@@ -1,13 +1,22 @@
 <!DOCTYPE html>
 	<head>
+		<meta name='viewport' content="width=device-width, initial-scale=1">
+
 		<title> KMTN Jewelers </title>
 		<link rel="stylesheet" type = "text/css" href="styleSheet.css">
 		<style>
-			#total{
-				border: 2px solid #808080;
-				width: 20%;
-				margin-left: 40%;
+			#Cost{
+			    border: 2px solid #808080;
+			    width: 50%;
+			    /*margin-left: 40%;*/
+			    margin-right: auto;
+			    margin-left: auto;
+
 			}
+			#Cost p {
+			    margin: 0;
+			}
+
 		</style>
 		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script language="javascript">
@@ -34,6 +43,12 @@
                 sessionStorage.removeItem("cartarray");
                 location.reload();
             }
+
+            function sendCart()
+            {
+
+            }
+
             
 			
         </script>
@@ -56,35 +71,55 @@
     		</ul>
 		</header>
         <br>
-        <div class="page">
+		<div id="empty_cart_eror">&nbsp;</div>
+        <div id="page" class="page">
 		<h2>Your Cart</h2>
+		<br />
     
 
         <div id='cart'>
-            <table border="0" cellpadding="5">
+            <table id='cartTable' border="0" cellpadding="5">
             	<tr>
-                	<th>Item Pic</th>
-                	<th>Item Name</th>
-                	<th>Cost Each</th>
-                	<th>Quantity</th>
+                	<th class="cartpic"></th>
+                	<th>Product</th>
+                	<th>Price</th>
+                	<th>Qty.</th>
               	</tr>
 
             	<script language="javascript">
                 	cartJarr = JSON.parse(sessionStorage.getItem("cartarray"));
+                	if (!cartJarr) {
+                		document.getElementById("page").style.display = "none";
+                		document.getElementById("empty_cart_eror").innerHTML += "Your cart is empty, please add an item to the cart to proceed. Thank you!"
+                	}
+
+
                 	var s = "";
                 	for (i = 0; i < cartJarr.length; i++)
                 	{
                 		var namearr = cartJarr[i].name.split(" ");
                 		var imgname = "watch" + namearr[1] + ".jpg";
-                    	s += "<tr><td>" + "<img src=" + imgname + "></td>";
+                    	s += "<tr><td class='cartpic'>" + "<img src=" + imgname + "></td>";
                     	s += "<td>" + cartJarr[i].name + "</td>";
                     	s += "<td> " + cartJarr[i].price + "</td>";
                     	s += "<td> " + cartJarr[i].quant + "</td></tr>";
                 	}
                 	document.writeln(s);
+
+                	$(window).resize(function() {
+		            	if($(window).width() < 600) {
+		            		$(".cartpic").hide();
+		            	} else {
+		            		$(".cartpic").show();
+		            	}
+		            });
+                	
+
             	</script>
         	</table>
         </div>
+
+
 		
         <div id='resetcart'>
                 <a href="#" id="order-watch" onclick="resetCart()">Empty Cart</a>
@@ -92,7 +127,12 @@
 		<br><br>
 		
 		<div>
-			<div id="total"></div>
+			<div id="Cost">
+				<p id="Subtotal">Subtotal: </p>
+				<p id="Tax">Tax: </p>
+				<p id="Total">Total: </p>
+
+			</div>
 		</div>
 				
 		<script language="JavaScript">
@@ -107,14 +147,22 @@
             }
 			tax = subtotal*.0625;
 			total = subtotal + tax;
-			s2= "<p><h3>Subtotal: $"+subtotal.toFixed(2)+"<br>Tax: $"+tax.toFixed(2)+"<br>Total: $"+total.toFixed(2)+"</h3></p>"
+			// s2= "<p><h3>Subtotal: $"+subtotal.toFixed(2)+"<br>Tax: $"+tax.toFixed(2)+"<br>Total: $"+total.toFixed(2)+"</h3></p>"
 				
-			document.getElementById('total').innerHTML+=s2
+			// cost = document.getElementById('Cost');
+			var cost_str = "";
+			cost_str += subtotal + " " + tax + " " + total;
+			sessionStorage.setItem("cost_str", cost_str);
+
+			document.getElementById('Subtotal').innerHTML += "$" + subtotal.toFixed(2);
+			document.getElementById('Tax').innerHTML += "$" + tax.toFixed(2);
+			document.getElementById('Total').innerHTML += "$" + total.toFixed(2);
 		</script>  
 		<br><br>
-		<a href="order.html">Place your Order</a>
+		<a href="order.html" onclick="sendCart()">Place your Order</a>
 		<br><br>
 
+	</div>
     </body>
-</div>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 	<head>
+		<meta name='viewport' content="width=device-width, initial-scale=1">
 		<title> KMTN Jewelers </title>
 		<link rel="stylesheet" type = "text/css" href="styleSheet.css">
 		<style>
@@ -14,16 +15,42 @@
 				font-size: 17px;
 			}
 
-			#checkoutLeft, #checkoutRight {
+			#checkoutLeft {
 			    float: left;
-			    width: 49.999%;
+			    width: 45%;
 			    color: #000000;
 			    padding: 10px;
 			    text-align: left;
 			}
 
+			#checkoutRight {
+			    float: right;
+			    width: 45%;
+			    color: #000000;
+			    padding: 10px;
+			    /*text-align: left;*/
+			}
+
+
 			#checkoutLeft p {
 				margin: 0;
+			}
+
+			#organize_right  {
+				float: right;
+				border: 2px solid #808080;
+				margin-top: 50px;
+
+			}
+
+			#sideCost{
+			    border-top: 1px solid #808080;
+			    text-align: right;
+			    padding-right: 10px;
+			}
+			#sideCost p {
+			    margin: 0;
+			    padding: 5px 0px;
 			}
 		</style>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -39,21 +66,27 @@
 					document.getElementById('errA').style.visibility='hidden';
 					document.getElementById('errC').style.visibility='hidden';
 					document.getElementById('errCVV').style.visibility='hidden';
+					var finish = true;
+					var error = false;
+
 					if (fName.value=="")
 					{
 						document.getElementById("errF").style.visibility= 'visible';
 						error=true;
 					}
+					if (error) finish = false;
 					if (lName.value=="")
 					{
 						document.getElementById("errL").style.visibility= 'visible';
 						error=true;
 					}
+					if (error) finish = false;
 					if (addLn1.value=="")
 					{
 						document.getElementById("errA").style.visibility= 'visible';
 						error=true;
 					}
+					if (error) finish = false;
 					if (phone.value=="")
 					{
 						document.getElementById("errP").innerHTML = "Phone number is a required field.<br><br>"
@@ -64,6 +97,8 @@
 					{
 						error = checkPhone();
 					}
+					if (error) finish = false;
+
 					if (credit.value=="")
 					{
 						document.getElementById("errC").innerHTML = "Credit Card Number is a required field.<br><br>"	
@@ -73,7 +108,8 @@
 					if (credit.value != "")
 					{
 						error = checkCredit();
-					}	
+					}
+					if (error) finish = false;
 					if (cvv.value=="")
 					{
 						document.getElementById("errCVV").innerHTML = "CVV is a required field.<br><br>"	
@@ -84,12 +120,15 @@
 					{
 						error = checkCVV();
 					}
-					if (error == false)	
+					if (error) finish = false;
+					if (finish)	
 					{
+						sessionStorage.clear();
 						document.location.href = "confirmed.html";
 						//s="Your order has been confirmed! Expect delivery in 8-12 business days"
 						//document.write(s)
 					}
+					finish = true;
 				}
 			}
 					
@@ -124,7 +163,7 @@
 				else
 				{
 					document.getElementById("errC").innerHTML=
-							"Credit Card Number was not entered in a recognized format.<br> Credit Card Numbermust contain 8 to 19 digits from 0-9.<br><br>";
+							"Credit Card Number was not entered in a recognized format.<br> Credit Card Number must contain 8 to 19 digits from 0-9.<br><br>";
 					document.getElementById("errC").style.visibility= 'visible';
 					return true;
 				}
@@ -147,6 +186,7 @@
 					return true;
 				}
 			}
+
 		</script>
 	</head>
 	<body>
@@ -169,7 +209,7 @@
 		<br>
 		<h2>Thank you for your order!</h2>
 		<br>
-		<div id="checkout">
+		<!-- <div id="checkout"> -->
 			<div id="checkoutLeft">
 				<p>
 					<i>Please enter your information below so we can get you your product(s) to you as soon as possible.</i>
@@ -196,8 +236,52 @@
 				</form>
 			</div>
 			<div id="checkoutRight">
+				<div id="organize_right">
+					<div id='cart'>
+			            <table id='sidecartTable' border="0" cellpadding="5">
+			            	<tr>
+			                	<th>Product</th>
+			                	<th>Price</th>
+			                	<th>Qty.</th>
+			              	</tr>
 
+			              	<script language="javascript">
+								cartJarr = JSON.parse(sessionStorage.getItem("cartarray"));
+				            	var s = "";
+				            	for (i = 0; i < cartJarr.length; i++)
+				            	{
+				            		var namearr = cartJarr[i].name.split(" ");
+
+				                	s += "<tr><td>" + cartJarr[i].name + "</td>";
+				                	s += "<td> " + cartJarr[i].price + "</td>";
+				                	s += "<td> " + cartJarr[i].quant + "</td></tr>";
+				            	}
+				            	document.writeln(s);
+					        </script>            	
+			        	</table>
+			        </div>
+					<div id="sideCost">
+						<p id="Subtotal">Subtotal: </p>
+						<p id="Tax">Tax: </p>
+						<p id="Total">Total: </p>
+
+					</div>
+				</div>
 			</div>
-		</div>
+
+			<script language="javascript">
+				var cost_str = sessionStorage.getItem("cost_str");
+				cost_arr = cost_str.split(" ");
+
+				subtotal = cost_arr[0] - 0;
+				tax = cost_arr[1] - 0; 
+				total = cost_arr[2] - 0;
+
+				document.getElementById('Subtotal').innerHTML += "$" + subtotal.toFixed(2);
+				document.getElementById('Tax').innerHTML += "$" + tax.toFixed(2);
+				document.getElementById('Total').innerHTML += "$" + total.toFixed(2);
+
+		</script>
+		<!-- </div> -->
     </body>
 </html>

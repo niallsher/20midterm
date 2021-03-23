@@ -1,5 +1,6 @@
 <!DOCTYPE html>
     <head>
+        <meta name='viewport' content="width=device-width, initial-scale=1">
         <title> KMTN Jewelers </title>
         <link rel="stylesheet" type = "text/css" href="styleSheet.css">
     </head>
@@ -80,34 +81,34 @@
         <div class='leftCol'>
             <hr #808080>
             <div id='necklace1'>
-                <img src='necklace1.jpg'>
+                <img id='productImg' name='productImg' src='necklace1.jpg'>
                 <p id='necklace1-name'>Necklace 1</p>
                 <p id='necklace1-price'>$250.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace1')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace1')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
 
             <div id='necklace4'>
-                <img src='necklace4.jpg'>
+                <img id='productImg' name='productImg' src='necklace4.jpg'>
                 <p id='necklace4-name'>Necklace 4</p>
                 <p id='necklace4-price'>$450.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace4')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace4')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
 
             <div id='necklace7'>
-                <img src='necklace7.jpg'>
+                <img id='productImg' name='productImg' src='necklace7.jpg'>
                 <p id='necklace7-name'>Necklace 7</p>
                 <p id='necklace7-price'>$835.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace7')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace7')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
@@ -116,32 +117,32 @@
         <div class='midCol'>
             <hr #808080>
             <div id='necklace2'>
-                <img src='necklace2.jpg'>
+                <img id='productImg' name='productImg' src='necklace2.jpg'>
                 <p id='necklace2-name'>Necklace 2</p>
                 <p id='necklace2-price'>$1335.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace2')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace2')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
             <div id='necklace5'>
-                <img src='necklace5.jpg'>
+                <img id='productImg' name='productImg' src='necklace5.jpg'>
                 <p id='necklace5-name'>Necklace 5</p>
                 <p id='necklace5-price'>$1250.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace5')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace5')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
             <div id='necklace8'>
-                <img src='necklace8.jpg'>
+                <img id='productImg' name='productImg' src='necklace8.jpg'>
                 <p id='necklace8-name'>Necklace 8</p>
                 <p id='necklace8-price'>$1835.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace8')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace8')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
@@ -151,38 +152,71 @@
         <div class ='rightCol'>
             <hr #808080>
             <div id='necklace3'>
-                <img src='necklace3.jpg'>
+                <img id='productImg' name='productImg' src='necklace3.jpg'>
                 <p id='necklace3-name'>Necklace 3</p>
                 <p id='necklace3-price'>$925.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace3')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace3')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
             
             <div id='necklace6'>
-                <img src='necklace6.jpg'>
+                <img id='productImg' name='productImg' src='necklace6.jpg'>
                 <p id='necklace6-name'>Necklace 6</p>
                 <p id='necklace6-price'>$1315.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace6')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace6')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
 
             <div id='necklace9'>
-                <img src='necklace9.jpg'>
+                <img id='productImg' name='productImg' src='necklace9.jpg'>
                 <p id='necklace9-name'>Necklace 9</p>
                 <p id='necklace9-price'>$1615.00</p>
 
                 <div id='order'>
-                    <a href="#" id="order-necklace" onclick="OrderNecklace('necklace9')">Add to cart</a>
+                    <a href="#" id="order-product" onclick="OrderNecklace('necklace9')">Add to cart</a>
                 </div>
             </div>
             <hr #808080>
         </div>
         </div>
+
+        <!-- Image Modal code was modified from w3schools examples -->
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01">
+            <div id="caption"></div>
+        </div>
+
+        <script language="javascript">
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementsByName('productImg');
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        for (var i = 0; i < img.length; i++) {
+            img[i].onclick = function(){
+                modal.style.display = "block";
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            }
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() { 
+                modal.style.display = "none";
+            }
+        }
+        </script>
     </body>
 </html>

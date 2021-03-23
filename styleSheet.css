@@ -102,23 +102,15 @@ name{
     
 }
 
-a#order-watch {
+a#order-product {
     padding: 5px 20px;
 }
 
-a#order-ring {
-    padding: 5px 20px;
-}
-
-a#order-watch:hover {
+a#order-product:hover {
     text-decoration: none;
 
 }
 
-a#order-ring:hover {
-    text-decoration: none;
-
-}
 
 #watches img {
     max-width: 250px;
@@ -183,7 +175,7 @@ a#order-ring:hover {
     position: relative;
 }
 
-#cart table {
+#cartTable {
     margin-left: auto;
     margin-right: auto;
     border: 2px solid #808080;
@@ -222,6 +214,7 @@ table img {
     width: 50px;
     height: 50px;
 }
+
 
 @media screen and (max-width: 900px) {
 
@@ -291,6 +284,8 @@ table img {
         margin-right: 10px;
       
     }
+
+
 }
 
 /* Modal style code below */
@@ -372,7 +367,3 @@ table img {
     width: 100%;
   }
 }
-
-
-
-
