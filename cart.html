@@ -56,13 +56,14 @@
     		</ul>
 		</header>
         <br>
-        <page>
+        <div class="page">
 		<h2>Your Cart</h2>
     
 
         <div id='cart'>
             <table border="0" cellpadding="5">
             	<tr>
+                	<th>Item Pic</th>
                 	<th>Item Name</th>
                 	<th>Cost Each</th>
                 	<th>Quantity</th>
@@ -73,7 +74,10 @@
                 	var s = "";
                 	for (i = 0; i < cartJarr.length; i++)
                 	{
-                    	s += "<tr><td>" + cartJarr[i].name + "</td>";
+                		var namearr = cartJarr[i].name.split(" ");
+                		var imgname = "watch" + namearr[1] + ".jpg";
+                    	s += "<tr><td>" + "<img src=" + imgname + "></td>";
+                    	s += "<td>" + cartJarr[i].name + "</td>";
                     	s += "<td> " + cartJarr[i].price + "</td>";
                     	s += "<td> " + cartJarr[i].quant + "</td></tr>";
                 	}
@@ -108,9 +112,9 @@
 			document.getElementById('total').innerHTML+=s2
 		</script>  
 		<br><br>
-		<a href="order.html" onclick="resetCart()">Place your Order</a>
+		<a href="order.html">Place your Order</a>
 		<br><br>
 
     </body>
-</page>
+</div>
 </html>
