@@ -11,10 +11,14 @@ header{
     top: 0;
     width: 100%;
     text-align: center; 
-   /* border: 5px solid;*/
-    position: fixed;
-    height: auto;
-    background-color: #FFFFFF;
+    position: sticky;
+    height: auto%;
+    background-color: #B39283;
+}
+
+.page {
+    display: inline-block;
+    position: relative;
 }
 
 header ul {
@@ -96,20 +100,7 @@ name{
 }
 
 a#order-watch {
-    /*text-decoration: none;
-    color: #fff;
-    background-color: #3719cf;
-    font-size: 24px;*/
     padding: 5px 20px;
-    /*ont-family: Helvetica, Arial, "sans-serif";
-    border-radius: 7px;
-    border: 1px solid #dfdfe5;
-    display:block;
-    width: 180px;
-    text-align:center;
-    position: relative;
-    margin-left: auto; margin-right: auto;
-    box-sizing: border-box;*/
 }
 
 a#order-ring {
@@ -117,17 +108,14 @@ a#order-ring {
 }
 
 a#order-watch:hover {
-    /*color: #21e0ed;
-    background-color: #3719cf;
-    border: 1px solid #3719cf;*/
     text-decoration: none;
 
 }
+
 a#order-ring:hover {
     text-decoration: none;
 
 }
-
 
 #watches img {
     max-width: 300px;
@@ -190,18 +178,14 @@ a#order-ring:hover {
     margin-right: auto;
     margin-left: auto;
     margin: 20px;
-    /*border: 2px solid #000;*/
     position: relative;
-    /*height: 200px;*/
 }
 
 #cart table {
-    /*position: absolute;*/
     margin-left: auto;
     margin-right: auto;
     border: 2px solid #808080;
     padding: 5px;
-    /*min-height: 70px;*/
 }
 
 #resetcart {
@@ -235,25 +219,23 @@ p{
 @media screen and (max-width: 900px) {
 
      .header {
+        top: 0;
         text-align: center;
         float: none;
         height: auto;
         display: block;
         border: none;
         width: 100%;
-        padding-bottom:20px;
-        padding-top: 20px;
-        padding-right: 20px;
-        padding-left: 20px;
         margin: 0 60px;
+        position: sticky;
     }
 
 
-header ul li {
-    text-align: center;
-    list-style: none;
-    display: inline-flex;
-}
+        .header ul li {
+        text-align: center;
+        list-style: none;
+        display: inline-flex;
+    }
 
 .leftCol, .midCol, .rightCol {
     float: none;
@@ -266,44 +248,8 @@ header ul li {
   
 }
 
-  /*  .header {
-        width: 100%;
-        height: auto;
-        position: relative;
-        background-color: #FFFFFF;
-        border: none;
-        display: block;
-    }
-
-
-    .header a {float: left; text-align: center;}
-    .body{margin-left: 0;}*/
+  
 }
 
-/*@media screen and (max-width: 500px) {
-    .header a{
-        text-align: center;
-        float: none;
-    }
-
-    .leftCol, .midCol, .rightCol {
-    float: none;
-    width: 100%;
-    color: #000000;
-    padding: 10px;
-    text-align: center;
-    border-right: 1px solid #808080;
-    }
-
-      .header {
-        text-align: center;
-        float: none;
-        height: 50%;
-        display: block;
-        border: none;
-        width: 100%;
-    }
-}
-*/
 
 
