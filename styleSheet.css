@@ -215,6 +215,59 @@ table img {
     height: 50px;
 }
 
+.homeShop{
+
+    width: 140px;
+    height: 120px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
+
+#homePhoto{
+    background-image: url("ring3.jpg");
+}
+
+#homeShop1{
+    background-image: url("ring1.jpg");
+}
+
+#homeShop2{
+    background-image: url("necklace8.jpg");
+}
+
+#homeShop3{
+    background-image: url("watch2.jpg");
+}
+
+#shopBut{
+    padding-bottom: 20px;
+    width: 100%;
+    position: sticky;
+    z-index: 1;
+
+}
+#shopBut #links li {
+    list-style: none;
+    display: inline-flex;
+    padding: 5px 15px;
+}
+#shopBut ul {
+    margin: 0;
+}
+
+#shopBut a:hover {
+    text-decoration: none;
+}
+
+#shopBut #links li p {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 90%;
+}
+
 
 @media screen and (max-width: 900px) {
 
