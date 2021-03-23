@@ -2,73 +2,139 @@
 	<head>
 		<title> KMTN Jewelers </title>
 		<link rel="stylesheet" type = "text/css" href="styleSheet.css">
+		<style>
+			.err{
+				visibility: hidden;
+				color: #FF0000;
+				font-size: 17px;
+			}
+		
+			#note{
+				color: #808080;
+				font-size: 17px;
+			}
+		</style>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		<script language="JavaScript">	
-					//function to validate inputs from user
-					function validate()
+			//function to validate inputs from user
+			function validate()
+			{
+				with (document.data)
+				{
+					document.getElementById('errF').style.visibility='hidden';
+					document.getElementById('errL').style.visibility='hidden';
+					document.getElementById('errP').style.visibility='hidden';
+					document.getElementById('errA').style.visibility='hidden';
+					document.getElementById('errC').style.visibility='hidden';
+					document.getElementById('errCVV').style.visibility='hidden';
+					if (fName.value=="")
 					{
-						with (document.data)
-						{
-							if (fName.value==""){
-								document.getElementById("errF").style.visibility= 'visible';
-								error=true;
-							}
-							if (lName.value==""){
-								document.getElementById("errL").style.visibility= 'visible';
-								error=true;
-							}
-							if (addLn1.value==""){
-								document.getElementById("errA").style.visibility= 'visible';
-								error=true;
-							}
-							if (phone.value==""){
-								document.getElementById("errP").style.visibility= 'visible';
-								error=true;
-							}
-							if (credit.value==""){
-								document.getElementById("errC").style.visibility= 'visible';
-								error=true;
-							}
-							if (cvv.value==""){
-								document.getElementById("errCVV").style.visibility= 'visible';
-								error=true;
-							}
-							
-						}
+						document.getElementById("errF").style.visibility= 'visible';
+						error=true;
 					}
-						/*
-						
-						if (phoneVal) //only enter if phone number was entered
-						{
-							errorP= checkPhone(phoneVal) //check if entered phone valid
-							if (errorP){
-								error=true;
-								errorMess=errorMess+"\n\nPhone Number was not entered in a recognized format. Recognized formats are:\n (123) 456-7890\n(123)456-7890\n123-456-7890\n123.456.7890\n1234567890\n+31636363634\n075-63546725\n"
-							}
-						}
-						if (error) //if there are any errors.
-						{
-							alert(errorMess) //display errors to user
-							return error;
-						}
+					if (lName.value=="")
+					{
+						document.getElementById("errL").style.visibility= 'visible';
+						error=true;
 					}
+					if (addLn1.value=="")
+					{
+						document.getElementById("errA").style.visibility= 'visible';
+						error=true;
+					}
+					if (phone.value=="")
+					{
+						document.getElementById("errP").innerHTML = "Phone number is a required field.<br><br>"
+						document.getElementById("errP").style.visibility= 'visible';
+						error=true;
+					}
+					if (phone.value != "")
+					{
+						error = checkPhone();
+					}
+					if (credit.value=="")
+					{
+						document.getElementById("errC").innerHTML = "Credit Card Number is a required field.<br><br>"	
+						document.getElementById("errC").style.visibility= 'visible';
+						error=true;
+					}	
+					if (credit.value != "")
+					{
+						error = checkCredit();
+					}	
+					if (cvv.value=="")
+					{
+						document.getElementById("errCVV").innerHTML = "CVV is a required field.<br><br>"	
+						document.getElementById("errCVV").style.visibility= 'visible';
+						error=true;
+					}	
+					if (cvv.value != "")
+					{
+						error = checkCVV();
+					}
+					if (error == false)	
+					{
+						document.location.href = "confirmed.html";
+						//s="Your order has been confirmed! Expect delivery in 8-12 business days"
+						//document.write(s)
+					}
+				}
+			}
 					
-					//a helper function to check the validity of phone numbers
-					function checkPhone(phoneNum)
-					{
-						phoneno = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
-						//regular expression came from: https://stackoverflow.com/questions/4338267/validate-phone-number-with-javascript
-						if(phoneNum.match(phoneno))
-						{
-							return false;
-						}
-						else
-						{
-							return true;
-						}
-					}
-					*/
-
+			function checkPhone()
+			{
+				phoneVal = phone.value
+				phoneno = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+				//regular expression came from: https://stackoverflow.com/questions/4338267/validate-phone-number-with-javascript
+			 	if(phoneVal.match(phoneno))
+				{
+				 	document.getElementById("errP").innerHTML="<br><br>";
+					return false;
+				}
+				else
+				{
+					document.getElementById("errP").innerHTML=
+							"Phone Number was not entered in a recognized format.<br> Recognized formats are:<br>(555) 555-5555<br>(555)555-5555<br>555-555-5555<br>555.555.5555<br>1234567890<br> +55555555555<br>555-55555555<br><br>";
+					document.getElementById("errP").style.visibility= 'visible';
+					return true;
+				}
+			}
+			
+			function checkCredit()
+			{
+				creditVal = credit.value
+				creditno = /^\d{8,19}$/;
+			 	if(creditVal.match(creditno))
+				{
+				 	document.getElementById("errC").innerHTML="<br><br>";
+					return false;
+				}
+				else
+				{
+					document.getElementById("errC").innerHTML=
+							"Credit Card Number was not entered in a recognized format.<br> Credit Card Numbermust contain 8 to 19 digits from 0-9.<br><br>";
+					document.getElementById("errC").style.visibility= 'visible';
+					return true;
+				}
+			}
+					
+			function checkCVV()
+			{
+				cvvVal = cvv.value
+				cvvno = /^[0-9]{3,4}$/;
+			 	if(cvvVal.match(cvvno))
+				{
+				 	document.getElementById("errCVV").innerHTML="<br><br>";
+					return false;
+				}
+				else
+				{
+					document.getElementById("errCVV").innerHTML=
+							"CVV was not entered in a recognized format.<br> CVV must contain 3 to 4 digits from 0-9.<br><br>";
+					document.getElementById("errCVV").style.visibility= 'visible';
+					return true;
+				}
+			}
 		</script>
 	</head>
 	<body>
@@ -80,7 +146,7 @@
 				<h1> &nbsp; KMTN Jewelers </h1>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a class="current" href="about.html">About Us</a></li>
+                <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="productsRings.html">Rings</a></li>
                 <li><a href="productsNecklaces.html">Necklaces</a></li>
@@ -88,18 +154,30 @@
     			<li><a href="cart.html">Cart</a></li>
             </ul>
 		</header>
-		<h2>Thank you for your order!</h2><br>
-		<p>Please enter your information below so we can get you your product(s) to you as soon as possible.</p>
+		<br>
+		<h2>Thank you for your order!</h2>
+		<br>
+		<p>
+			<i>Please enter your information below so we can get you your product(s) to you as soon as possible.</i>
+		</p>
+		
+		<div id="note">Note: * is required field.<br><br></div>
+		
         <form name="data">
-			<div>First Name*: <input type="text" id="fName"><div id="errF"  class="err">First Name is a required field.<br><br></div></div>
-			<div>Last Name*: <input type="text" id="lName" value=""><div id="errL"  class="err">Last Name is a required field.<br><br><div id="err"></div></div>
-			<div>Shipping Address Line 1*: <input type="text" id="addLn1"></div>
-			<div>Shipping Address line 2: <input type="text" id="addLn2"><div id="errA" class="err">Address Line 1 is a required field.<br><br></div></div>
-			<div>Contact Phone*: <input type="text" id="phone" ><div id="errP"  class="err">Phone number is a required field.<br><br><div id="phoneFormat"></div></div></div>
-			<div>Credit Card Number*: <input type="text" id="credit"><div id="errC" class="err">Credit Card Number is a required field.<br><br><div id="cvvFormat"></div></div></div>
-			<div>CVV*: <input type="text" id="cvv"><div   class="err" id="errCVV">CVV is a required field<div id="creditVal"></div></div></div>
-					<p id="note">Note: * is required field.<br><br></p>
-			<p> <a href="#" id="order" onclick="validate()">Add to cart</a></p>
+			First Name*: <input type="text" id="fName"><div id="errF"  class="err">First Name is a required field.<br><br></div>
+			
+			Last Name*: <input type="text" id="lName"><div id="errL"  class="err">Last Name is a required field.<br><br></div>
+			
+			Address Line 1*: <input type="text" id="addLn1"><br>
+			Address Line 2: <input type="text" id="addLn2"><div id="errA" class="err">Address Line 1 is a required field.<br><br></div>
+			
+			Contact Phone*: <input type="text" id="phone" ><div id="errP"  class="err"><br><br></div>
+			
+			Credit Card Number*: <input type="text" id="credit"><div id="errC" class="err"><br><br></div>
+			
+			CVV*: <input type="text" id="cvv"><div class="err" id="errCVV"><br><br></div>
+					
+			<p> <a href="#" id="order" onclick="validate()">Place Order</a></p>
 			
 		</form>
     </body>
