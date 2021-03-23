@@ -2,28 +2,32 @@
 	<head>
 		<title> KMTN Jewelers </title>
 		<link rel="stylesheet" type = "text/css" href="styleSheet.css">
-	</head>
-	<body>
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+		<style>
+			#total{
+				border: 2px solid #808080;
+				width: 20%;
+				margin-left: 40%;
+			}
+		</style>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
         <script language="javascript">
 
             $(document).ready(read());
-
-            function read()
-            {
-                Jarray = JSON.parse(sessionStorage.getItem("orderarray"));
-                sessionStorage.removeItem("orderarray");
-                
-                cartJarray = JSON.parse(sessionStorage.getItem("cartarray"));
-                if (!cartJarray) {
-                    var cartJarray = [];
-                }
-                for (var i = 0; i < Jarray.length; i++) {
-                    cartJarray.push(Jarray[i]);
-                }
-
-                sessionStorage.setItem("cartarray", JSON.stringify(cartJarray));
-            }
+			function read()
+		   	{
+				Jarray = JSON.parse(sessionStorage.getItem("orderarray"));
+				sessionStorage.removeItem("orderarray");
+			    cartJarray =JSON.parse(sessionStorage.getItem("cartarray"));
+			    if (!cartJarray) 
+				{
+					var cartJarray = [];
+			    }
+			    for (var i = 0; i < Jarray.length; i++) 
+				{
+				   cartJarray.push(Jarray[i]);
+			    }
+			    sessionStorage.setItem("cartarray", JSON.stringify(cartJarray));
+		    }
 
             function resetCart()
             {
@@ -31,7 +35,7 @@
                 location.reload();
             }
             
-
+			
             // function WatchProduct(name, price, quant)
             // {
             //     this.name = name;
@@ -46,13 +50,15 @@
             // }
 
         </script>
+	</head>
+	<body>
 		<header>
                
                 <a class = "logoBut" href ="index.html" align ="left"> 
                     <img id = "logo" align="left" src="logo.jpg">
                 </a>
 				<h1> &nbsp; KMTN Jewelers </h1>
-            <ul>
+			<ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
@@ -60,54 +66,62 @@
                 <li><a href="productsNecklaces.html">Necklaces</a></li>
                 <li><a href="productsWatches.html">Watches</a></li>
     			<li><a class="current" href="cart.html">Cart</a></li>
-            </ul>
+    		</ul>
 		</header>
-        <br />
-
+        <br>
+		<h2>Your Cart</h2>
         <!-- <a href = 'order.html' target=“_blank”>Order Now</a> -->
 
         <div id='cart'>
             <table border="0" cellpadding="5">
-              <tr>
-                <th>Item Name</th>
-                <th>Cost Each</th>
-                <th>Quantity</th>
+            	<tr>
+                	<th>Item Name</th>
+                	<th>Cost Each</th>
+                	<th>Quantity</th>
+              	</tr>
 
-              </tr>
-
-              
-
-            <script language="javascript">
-                cartJarr = JSON.parse(sessionStorage.getItem("cartarray"));
-
-                var s = "";
-                for (i = 0; i < cartJarr.length; i++)
-                {
-                    s += "<tr><td>" + cartJarr[i].name + "</td>";
-                    s += "<td> " + cartJarr[i].price + "</td>";
-                    s += "<td> " + cartJarr[i].quant + "</td></tr>";
-
-                    // alert(s);
-                }
-                document.writeln(s);
-                
-            </script>
-            </table>
-
-            
+            	<script language="javascript">
+                	cartJarr = JSON.parse(sessionStorage.getItem("cartarray"));
+                	var s = "";
+                	for (i = 0; i < cartJarr.length; i++)
+                	{
+                    	s += "<tr><td>" + cartJarr[i].name + "</td>";
+                    	s += "<td> " + cartJarr[i].price + "</td>";
+                    	s += "<td> " + cartJarr[i].quant + "</td></tr>";
+                	}
+                	document.writeln(s);
+            	</script>
+        	</table>
         </div>
+		
         <div id='resetcart'>
                 <a href="#" id="order-watch" onclick="resetCart()">Empty Cart</a>
         </div>
-
-        
-
-
-
+		<br><br>
+		
+		<div>
+			<div id="total"></div>
+		</div>
+				
+		<script language="JavaScript">
+			subtotal=0;
+            for (i = 0; i < cartJarr.length; i++)
+            {
+				price = cartJarr[i].price
+				price = price.substring(1)
+				quant = cartJarr[i].quant
+				itemTotal = price * quant;
+				subtotal = subtotal + itemTotal;
+            }
+			tax = subtotal*.0625;
+			total = subtotal + tax;
+			s2= "<p><h3>Subtotal: $"+subtotal.toFixed(2)+"<br>Tax: $"+tax.toFixed(2)+"<br>Total: $"+total.toFixed(2)+"</h3></p>"
+				
+			document.getElementById('total').innerHTML+=s2
+		</script>  
+		<br><br>
+		<a href="order.html" onclick="resetCart()">Place your Order</a>
+		<br><br>
 
     </body>
 </html>
-
-
-
-
