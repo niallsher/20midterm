@@ -14,6 +14,7 @@ header{
     position: sticky;
     height: auto%;
     background-color: #B39283;
+    z-index: 1;
 }
 
 .page {
@@ -44,7 +45,7 @@ h1{
 
 h2{
     font-size: 25px;
-    padding-top: 12%;   
+    padding-top: 8%;   
 }
 
 a {
@@ -216,6 +217,11 @@ p{
   color: #000000;
 }
 
+table img {
+    width: 50px;
+    height: 50px;
+}
+
 @media screen and (max-width: 900px) {
 
      .header {
@@ -228,6 +234,7 @@ p{
         width: 100%;
         margin: 0 60px;
         position: sticky;
+
     }
 
 
@@ -249,7 +256,7 @@ p{
 }
 
   
-}
+
 
 
 
