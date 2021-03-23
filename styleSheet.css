@@ -119,28 +119,28 @@ a#order-ring:hover {
 }
 
 #watches img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 250px;
     display: inline-block;
-    width: 300px;
+    width: 250px;
     height: auto;
     box-sizing: border-box;
 }
 
 #necklaces img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 250px;
     display: inline-block;
-    width: 300px;
+    width: 250px;
     height: auto;
     box-sizing: border-box;
 }
 
 #rings img {
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 250px;
+    max-height: 250px;
     display: inline-block;
-    width: 300px;
+    width: 250px;
     height: auto;
     box-sizing: border-box;
 }
@@ -243,17 +243,18 @@ table img {
         list-style: none;
         display: inline-flex;
     }
-}
 
-.leftCol, .midCol, .rightCol {
-    float: none;
-    width: 100%;
-    color: #000000;
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #808080;
-    margin-right: 10px;
-  
+
+    .leftCol, .midCol, .rightCol {
+        float: none;
+        width: 100%;
+        color: #000000;
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #808080;
+        margin-right: 10px;
+      
+    }
 }
 
 /* Modal style code below */
