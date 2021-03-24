@@ -9,13 +9,19 @@
             var orderarray = [];
             // var cartarray = [];
             window.sessionStorage;
+            
+             //RingProduct
+            //this function makes a new ring instance, assigning its name, price and quanity
             function ringProduct(name, price, quant)
             {
                 this.name = name;
                 this.price = price;
                 this.quant = quant;
             }
-
+            
+            //makeRing
+            //this function makes a new ring when one is ordered, by calling RingProduct and pushing
+            //this instance into the array
             function makeRing(array, name, price)
             {
                 need_new = checkOrders(array, name);
@@ -25,7 +31,9 @@
                 }
                 // return orderarray;
             }
-
+            
+            //checkOrders
+            //this function checks to see if a ring instance is already in the cart and updates the cart quantities
             function checkOrders(array, name)
             {
                 for (var i = 0; i < array.length; i++) {
@@ -47,7 +55,9 @@
                 }
                 return true;
             }
-
+            
+            //OrderNecklace
+            //this function adds the ordered necklace element to the ordered array
             function OrderRing(element)
             {
                 name = document.getElementById(element + "-name").innerHTML;
