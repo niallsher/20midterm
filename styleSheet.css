@@ -291,6 +291,14 @@ table img {
     top: 90%;
 }
 
+@media screen and (max-width: 667px) {
+    #product_menu {
+        top: 167px;
+        width: 139px;
+
+    }
+
+}
 
 @media screen and (max-width: 900px) {
 
