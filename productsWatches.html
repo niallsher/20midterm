@@ -46,13 +46,17 @@
         <script language="javascript">
 
             var orderarray = [];
+            //WatchProduct
+            //this function makes a new watch instance, assigning its name, price and quanity
             function WatchProduct(name, price, quant)
             {
                 this.name = name;
                 this.price = price;
                 this.quant = quant;
             }
-
+            //makeWatch
+            //this function makes a new watch when one is ordered, by calling WatchProduct and pushing
+            //this instance into the array
             function makeWatch(array, name, price)
             {
                 need_new = checkOrders(array, name);
@@ -61,7 +65,8 @@
                     array.push(new_watch);
                 }
             }
-
+            //checkOrders
+            //this function checks to see if a ring instance is already in the cart and updates the cart quantities
             function checkOrders(array, name)
             {
                 for (var i = 0; i < array.length; i++) {
@@ -83,7 +88,8 @@
                 }
                 return true;
             }
-
+            //OrderWatch
+            //this function adds the ordered watch element to the ordered array
             function OrderWatch(element)
             {
                 name = document.getElementById(element + "-name").innerHTML;

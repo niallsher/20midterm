@@ -45,13 +45,17 @@
         </header>
         <script language="javascript">
             var orderarray = [];
+            //NecklaceProduct
+            //this function makes a new necklace instance, assigning its name, price and quanity
             function NecklaceProduct(name, price, quant)
             {
                 this.name = name;
                 this.price = price;
                 this.quant = quant;
             }
-
+            //makeNecklace
+            //this function makes a new necklace when one is ordered, by calling NecklaceProduct and pushing
+            //this instance into the array
             function makeNecklace(array, name, price)
             {
                 need_new = checkOrders(array, name);
@@ -60,7 +64,8 @@
                     array.push(new_necklace);
                 }
             }
-
+            //checkOrders
+            //this function checks to see if a necklace instance is already in the cart and updates the cart quantities 
             function checkOrders(array, name)
             {
                 for (var i = 0; i < array.length; i++) {
@@ -82,7 +87,8 @@
                 }
                 return true;
             }
-
+            //OrderNecklace
+            //this function adds the ordered necklace element to the ordered array
             function OrderNecklace(element)
             {
                 name = document.getElementById(element + "-name").innerHTML;
