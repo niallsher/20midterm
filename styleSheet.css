@@ -1,3 +1,8 @@
+
+html {
+    background-color: #f8f8ff;
+}
+
 body{
     text-align: center;
     background-color: ;
@@ -17,18 +22,11 @@ header{
     z-index: 1;
 }
 
-
-
-.page {
-    display: inline-block;
-    position: relative;
-}
-
-header ul {
+header #nav {
     padding-bottom: 10px;
 }
 
-header ul li {
+header #nav li {
     list-style: none;
     display: inline-flex;
 }
@@ -47,7 +45,7 @@ h1{
 
 h2{
     font-size: 25px;
-    padding-top: 8%;   
+    padding-top: 20px;   
 }
 
 a {
@@ -61,14 +59,13 @@ a {
 }
 
 a:hover {
-    color: #FFFFFF;
-    background-color: #000000;
-    text-decoration: underline;
+    color: #B39283;
+    background-color: #f8f8ff;
 }
 
 a.current {
-    color: #FFFFFF;
-    background-color: #000000;
+    color: #B39283;
+    background-color: #f8f8ff;
     text-decoration: none;
 }
 
@@ -84,6 +81,30 @@ a.logoBut {
     padding-bottom: 0px;
     padding-right: 0px;
     padding-left: 0px;
+}
+
+#product_menu {
+    display: block;
+    position: absolute;
+    background-color: #B39283;
+    width: 138px;
+    height: 170px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 120px;
+    border: 3px solid #000;
+}
+
+#product_menu div a {
+    position: relative;
+    top: 20px;
+}
+#product_menu div {
+    position: relative;
+    height: 55px;
+}
+#products_btn #p_btn:hover {
+    cursor: default;
 }
 
 image{
@@ -104,6 +125,8 @@ name{
 
 a#order-product {
     padding: 5px 20px;
+    border: 3px solid #B39283;
+    color: #B39283;
 }
 
 a#order-product:hover {
@@ -226,19 +249,19 @@ table img {
 }
 
 #homePhoto{
-    background-image: url("ring3.jpg");
+    background-image: url("Promise_Gold_Ring.jpg");
 }
 
 #homeShop1{
-    background-image: url("ring1.jpg");
+    background-image: url("Simple_Gold_Diamond_Ring.jpg");
 }
 
 #homeShop2{
-    background-image: url("necklace8.jpg");
+    background-image: url("14k_Gold_Choker_Necklace.jpg");
 }
 
 #homeShop3{
-    background-image: url("watch2.jpg");
+    background-image: url("Vigili_Del_Fuoco_Watch.jpg");
 }
 
 #shopBut{

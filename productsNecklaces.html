@@ -3,41 +3,57 @@
         <meta name='viewport' content="width=device-width, initial-scale=1">
         <title> KMTN Jewelers </title>
         <link rel="stylesheet" type = "text/css" href="styleSheet.css">
+        <style>
+            p,h2 {
+                color: #B39283;
+            }
+        </style>
     </head>
     <body>
         <header>
-               
                 <a class = "logoBut" href ="index.html" align ="left"> 
                     <img id = "logo" align="left" src="logo.jpg">
                 </a>
                 <h1> &nbsp; KMTN Jewelers </h1>
-            <ul>
+            <ul id="nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="productsRings.html">Rings</a></li>
-                <li><a class="current" href="productsNecklaces.html">Necklaces</a></li>
-                <li><a href="productsWatches.html">Watches</a></li>
+                    <li id="products_btn"><a class="current" id="p_btn">Our Products</a>
+                    <div id="product_menu">
+                        <div><a href="productsRings.html">Rings</a></div>
+                        <div><a class="current" href="productsNecklaces.html">Necklaces</a></div>
+                        <div><a href="productsWatches.html">Watches</a></div>
+                    </div>
+                    </li>
                 <li><a href="cart.html">Cart</a></li>
             </ul>
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <script language="javascript">
+
+                $(document).ready(function() {
+                    $("#product_menu").hide();
+                });
+
+                $("#products_btn").mouseover(function() {
+                    $("#product_menu").stop().slideDown(500, 'linear');
+                });
+                $("#products_btn").mouseout(function() {
+                    $("#product_menu").stop().slideUp(500, "linear");
+                });
+            </script>
         </header>
         <script language="javascript">
             var orderarray = [];
             // var cartarray = [];
             window.sessionStorage;
-            
-            //NecklaceProduct
-            //this function makes a new necklace instance, assigning its name, price and quanity
             function NecklaceProduct(name, price, quant)
             {
                 this.name = name;
                 this.price = price;
                 this.quant = quant;
             }
-            
-            //makeNecklace
-            //this function makes a new necklace when one is ordered, by calling NecklaceProduct and pushing
-            //this instance into the array
+
             function makeNecklace(array, name, price)
             {
                 need_new = checkOrders(array, name);
@@ -47,8 +63,7 @@
                 }
                 // return orderarray;
             }
-            //checkOrders
-            //this function checks to see if a necklace instance is already in the cart and updates the cart quantities   
+
             function checkOrders(array, name)
             {
                 for (var i = 0; i < array.length; i++) {
@@ -70,9 +85,7 @@
                 }
                 return true;
             }
-            
-            //OrderNecklace
-            //this function adds the ordered necklace element to the ordered array
+
             function OrderNecklace(element)
             {
                 name = document.getElementById(element + "-name").innerHTML;
@@ -90,8 +103,8 @@
         <div class='leftCol'>
             <hr #808080>
             <div id='necklace1'>
-                <img id='productImg' name='productImg' src='necklace1.jpg'>
-                <p id='necklace1-name'>Necklace 1</p>
+                <img id='productImg' name='productImg' src='Stacked_14k_Gold_Necklaces.jpg'>
+                <p id='necklace1-name'>Stacked 14k Gold Necklaces</p>
                 <p id='necklace1-price'>$250.00</p>
 
                 <div id='order'>
@@ -101,8 +114,8 @@
             <hr #808080>
 
             <div id='necklace4'>
-                <img id='productImg' name='productImg' src='necklace4.jpg'>
-                <p id='necklace4-name'>Necklace 4</p>
+                <img id='productImg' name='productImg' src='Gold_Dolphin_Pendant.jpg'>
+                <p id='necklace4-name'>Gold Dolphin Pendant</p>
                 <p id='necklace4-price'>$450.00</p>
 
                 <div id='order'>
@@ -112,8 +125,8 @@
             <hr #808080>
 
             <div id='necklace7'>
-                <img id='productImg' name='productImg' src='necklace7.jpg'>
-                <p id='necklace7-name'>Necklace 7</p>
+                <img id='productImg' name='productImg' src='Amethyst_Gold_Pendant.jpg'>
+                <p id='necklace7-name'>Amethyst Gold Pendant</p>
                 <p id='necklace7-price'>$835.00</p>
 
                 <div id='order'>
@@ -126,8 +139,8 @@
         <div class='midCol'>
             <hr #808080>
             <div id='necklace2'>
-                <img id='productImg' name='productImg' src='necklace2.jpg'>
-                <p id='necklace2-name'>Necklace 2</p>
+                <img id='productImg' name='productImg' src='Stacked_Marble_Necklaces.jpg'>
+                <p id='necklace2-name'>Stacked Marble Necklaces</p>
                 <p id='necklace2-price'>$1335.00</p>
 
                 <div id='order'>
@@ -136,8 +149,8 @@
             </div>
             <hr #808080>
             <div id='necklace5'>
-                <img id='productImg' name='productImg' src='necklace5.jpg'>
-                <p id='necklace5-name'>Necklace 5</p>
+                <img id='productImg' name='productImg' src='2_count_White_Gold_Pendant.jpg'>
+                <p id='necklace5-name'>2 count White Gold Pendant</p>
                 <p id='necklace5-price'>$1250.00</p>
 
                 <div id='order'>
@@ -146,8 +159,8 @@
             </div>
             <hr #808080>
             <div id='necklace8'>
-                <img id='productImg' name='productImg' src='necklace8.jpg'>
-                <p id='necklace8-name'>Necklace 8</p>
+                <img id='productImg' name='productImg' src='14k_Gold_Choker_Necklace.jpg'>
+                <p id='necklace8-name'>14k Gold Choker Necklace</p>
                 <p id='necklace8-price'>$1835.00</p>
 
                 <div id='order'>
@@ -161,8 +174,8 @@
         <div class ='rightCol'>
             <hr #808080>
             <div id='necklace3'>
-                <img id='productImg' name='productImg' src='necklace3.jpg'>
-                <p id='necklace3-name'>Necklace 3</p>
+                <img id='productImg' name='productImg' src='14k_Gold_Chain_Necklace.jpg'>
+                <p id='necklace3-name'>14k Gold Chain Necklace</p>
                 <p id='necklace3-price'>$925.00</p>
 
                 <div id='order'>
@@ -172,8 +185,8 @@
             <hr #808080>
             
             <div id='necklace6'>
-                <img id='productImg' name='productImg' src='necklace6.jpg'>
-                <p id='necklace6-name'>Necklace 6</p>
+                <img id='productImg' name='productImg' src='Evil_Eye_Necklace.jpg'>
+                <p id='necklace6-name'>Evil Eye Necklace</p>
                 <p id='necklace6-price'>$1315.00</p>
 
                 <div id='order'>
@@ -183,8 +196,8 @@
             <hr #808080>
 
             <div id='necklace9'>
-                <img id='productImg' name='productImg' src='necklace9.jpg'>
-                <p id='necklace9-name'>Necklace 9</p>
+                <img id='productImg' name='productImg' src='Red_Bead_Necklace.jpg'>
+                <p id='necklace9-name'>Red Bead Necklace</p>
                 <p id='necklace9-price'>$1615.00</p>
 
                 <div id='order'>

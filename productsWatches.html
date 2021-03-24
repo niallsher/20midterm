@@ -3,17 +3,49 @@
         <meta name='viewport' content="width=device-width, initial-scale=1">
         <title> KMTN Jewelers </title>
         <link rel="stylesheet" type = "text/css" href="styleSheet.css">
-
+        <style>
+            p,h2 {
+                color: #B39283;
+            }
+        </style>
     </head>
     <body>
-        <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <header>
+                <a class = "logoBut" href ="index.html" align ="left"> 
+                    <img id = "logo" align="left" src="logo.jpg">
+                </a>
+                <h1> &nbsp; KMTN Jewelers </h1>
+            <ul id="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+                    <li id="products_btn"><a class="current" id="p_btn">Our Products</a>
+                    <div id="product_menu">
+                        <div><a href="productsRings.html">Rings</a></div>
+                        <div><a href="productsNecklaces.html">Necklaces</a></div>
+                        <div><a class="current" href="productsWatches.html">Watches</a></div>
+                    </div>
+                    </li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <script language="javascript">
+
+                $(document).ready(function() {
+                    $("#product_menu").hide();
+                });
+
+                $("#products_btn").mouseover(function() {
+                    $("#product_menu").stop().slideDown(500, 'linear');
+                });
+                $("#products_btn").mouseout(function() {
+                    $("#product_menu").stop().slideUp(500, "linear");
+                });
+            </script>
+        </header>
         <script language="javascript">
 
             var orderarray = [];
-            // var cartarray = [];
-            window.sessionStorage;
-            //WatchProduct
-            //this function makes a new watch instance, assigning its name, price and quanity
             function WatchProduct(name, price, quant)
             {
                 this.name = name;
@@ -21,9 +53,6 @@
                 this.quant = quant;
             }
 
-             //makeWatch
-            //this function makes a new watch when one is ordered, by calling WatchProduct and pushing
-            //this instance into the array
             function makeWatch(array, name, price)
             {
                 need_new = checkOrders(array, name);
@@ -31,11 +60,8 @@
                     new_watch = new WatchProduct(name, price, 1);
                     array.push(new_watch);
                 }
-                // return orderarray;
             }
-            
-            //checkOrders
-            //this function checks to see if a ring instance is already in the cart and updates the cart quantities
+
             function checkOrders(array, name)
             {
                 for (var i = 0; i < array.length; i++) {
@@ -58,8 +84,6 @@
                 return true;
             }
 
-            //OrderWatch
-            //this function adds the ordered watch element to the ordered array
             function OrderWatch(element)
             {
                 name = document.getElementById(element + "-name").innerHTML;
@@ -70,21 +94,6 @@
 
             }
         </script>
-        <header>
-                <a class = "logoBut" href ="index.html" align ="left"> 
-                    <img id = "logo" align="left" src="logo.jpg">
-                </a>
-            <ul>
-                <h1> &nbsp; KMTN Jewelers </h1>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="productsRings.html">Rings</a></li>
-                <li><a href="productsNecklaces.html">Necklaces</a></li>
-                <li><a class="current" href="productsWatches.html">Watches</a></li>
-                <li><a href="cart.html">Cart</a></li>
-            </ul>
-        </header> 
         <br>
         <h2>Our Watches</h2>
         <br>
@@ -94,8 +103,8 @@
         <div class='leftCol'>
             <hr #808080>
             <div id='watch1'>
-                <img id='productImg' name='productImg' src='watch1.jpg' alt="watch1">
-                <p id='watch1-name'>Watch 1</p>
+                <img id='productImg' name='productImg' src='Mamba_Gold_Watch.jpg' alt="watch1">
+                <p id='watch1-name'>Mamba Gold Watch</p>
                 <p id='watch1-price'>$750.00</p>
 
                 <div id='order'>
@@ -105,8 +114,8 @@
             <hr #808080>
 
             <div id='watch4'>
-                <img id='productImg' name='productImg' src='watch4.jpg' alt="watch4">
-                <p id='watch4-name'>Watch 4</p>
+                <img id='productImg' name='productImg' src='Montblanc_Gold_Watch.jpg' alt="watch4">
+                <p id='watch4-name'>Montblanc Gold Watch</p>
                 <p id='watch4-price'>$600.00</p>
 
                 <div id='order'>
@@ -116,8 +125,8 @@
             <hr #808080>
 
             <div id='watch7'>
-                <img id='productImg' name='productImg' src='watch7.jpg'>
-                <p id='watch7-name'>Watch 7</p>
+                <img id='productImg' name='productImg' src='Esprit_Diamond_Watch.jpg'>
+                <p id='watch7-name'>Esprit Diamond Watch</p>
                 <p id='watch7-price'>$1000.00</p>
 
                 <div id='order'>
@@ -130,8 +139,8 @@
         <div class='midCol'>
             <hr #808080>
             <div id='watch2'>
-                <img id='productImg' name='productImg' src='watch2.jpg'>
-                <p id='watch2-name'>Watch 2</p>
+                <img id='productImg' name='productImg' src='Vigili_Del_Fuoco_Watch.jpg'>
+                <p id='watch2-name'>Vigili Del Fuoco Watch</p>
                 <p id='watch2-price'>$250.00</p>
 
                 <div id='order'>
@@ -140,8 +149,8 @@
             </div>
             <hr #808080>
             <div id='watch5'>
-                <img id='productImg' name='productImg' src='watch5.jpg'>
-                <p id='watch5-name'>Watch 5</p>
+                <img id='productImg' name='productImg' src='Cartier_Vintage_Watch.jpg'>
+                <p id='watch5-name'>Cartier Vintage Watch</p>
                 <p id='watch5-price'>$1100.00</p>
 
                 <div id='order'>
@@ -150,8 +159,8 @@
             </div>
             <hr #808080>
             <div id='watch8'>
-                <img id='productImg' name='productImg' src='watch8.jpg'>
-                <p id='watch8-name'>Watch 8</p>
+                <img id='productImg' name='productImg' src='Citizen_Everyday_Watch.jpg'>
+                <p id='watch8-name'>Citizen Everyday Watch</p>
                 <p id='watch8-price'>$2000.00</p>
 
                 <div id='order'>
@@ -165,8 +174,8 @@
         <div class ='rightCol'>
             <hr #808080>
             <div id='watch3'>
-                <img id='productImg' name='productImg' src='watch3.jpg'>
-                <p id='watch3-name'>Watch 3</p>
+                <img id='productImg' name='productImg' src='Mamba_Wooden_Watch.jpg'>
+                <p id='watch3-name'>Mamba Wooden Watch</p>
                 <p id='watch3-price'>$350.00</p>
 
                 <div id='order'>
@@ -176,8 +185,8 @@
             <hr #808080>
 
             <div id='watch6'>
-                <img id='productImg' name='productImg' src='watch6.jpg'>
-                <p id='watch6-name'>Watch 6</p>
+                <img id='productImg' name='productImg' src='Jaeger_le_Coultre_Watch.jpg'>
+                <p id='watch6-name'>Jaeger le Coultre Watch</p>
                 <p id='watch6-price'>$400.00</p>
 
                 <div id='order'>
@@ -187,8 +196,8 @@
             <hr #808080>
 
             <div id='watch9'>
-                <img id='productImg' name='productImg' src='watch9.jpg'>
-                <p id='watch9-name'>Watch 9</p>
+                <img id='productImg' name='productImg' src='James_Cook_Watch.jpg'>
+                <p id='watch9-name'>James Cook Watch</p>
                 <p id='watch9-price'>$700.00</p>
 
                 <div id='order'>

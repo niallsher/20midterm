@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 	<head>
 		<meta name='viewport' content="width=device-width, initial-scale=1">
-
 		<title> KMTN Jewelers </title>
 		<link rel="stylesheet" type = "text/css" href="styleSheet.css">
 		<style>
@@ -22,10 +21,6 @@
         <script language="javascript">
 
             $(document).ready(read());
-			//read
-			//This function reads the gets the quantities in the orderarray and
-			//gets the items in the cartarray. These values are all put into
-			//Jarray. 
 			function read()
 		   	{
 				Jarray = JSON.parse(sessionStorage.getItem("orderarray"));
@@ -41,16 +36,12 @@
 			    }
 			    sessionStorage.setItem("cartarray", JSON.stringify(cartJarray));
 		    }
-	    //resetCart
-	    //This function resets the cartarray to empty
+
             function resetCart()
             {
                 sessionStorage.removeItem("cartarray");
                 location.reload();
             }
-
-
-            
 			
         </script>
 	</head>
@@ -61,19 +52,37 @@
                     <img id = "logo" align="left" src="logo.jpg">
                 </a>
 				<h1> &nbsp; KMTN Jewelers </h1>
-			<ul>
+			<ul id="nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="productsRings.html">Rings</a></li>
-                <li><a href="productsNecklaces.html">Necklaces</a></li>
-                <li><a href="productsWatches.html">Watches</a></li>
+                	<li id="products_btn"><a id="p_btn">Our Products</a>
+                	<div id="product_menu">
+                		<div><a href="productsRings.html">Rings</a></div>
+                		<div><a href="productsNecklaces.html">Necklaces</a></div>
+                		<div><a href="productsWatches.html">Watches</a></div>
+                	</div>
+                	</li>
     			<li><a class="current" href="cart.html">Cart</a></li>
     		</ul>
-		</header>
+    		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+	        <script language="javascript">
+
+	        	$(document).ready(function() {
+	        		$("#product_menu").hide();
+	        	});
+
+	        	$("#products_btn").mouseover(function() {
+	        		$("#product_menu").stop().slideDown(500, 'linear');
+	        	});
+	        	$("#products_btn").mouseout(function() {
+	        		$("#product_menu").stop().slideUp(500, "linear");
+	        	});
+	        </script>
+	    </header>
         <br>
 		<div id="empty_cart_eror">&nbsp;</div>
-        <div id="page" class="page">
+		<div id ="page">
 		<h2>Your Cart</h2>
 		<br />
     
@@ -99,7 +108,8 @@
                 	for (i = 0; i < cartJarr.length; i++)
                 	{
                 		var namearr = cartJarr[i].name.split(" ");
-                		var imgname = "watch" + namearr[1] + ".jpg";
+                		var imgname = namearr.join("_") + ".jpg";
+
                     	s += "<tr><td class='cartpic'>" + "<img src=" + imgname + "></td>";
                     	s += "<td>" + cartJarr[i].name + "</td>";
                     	s += "<td> " + cartJarr[i].price + "</td>";
@@ -148,9 +158,7 @@
             }
 			tax = subtotal*.0625;
 			total = subtotal + tax;
-			// s2= "<p><h3>Subtotal: $"+subtotal.toFixed(2)+"<br>Tax: $"+tax.toFixed(2)+"<br>Total: $"+total.toFixed(2)+"</h3></p>"
-				
-			// cost = document.getElementById('Cost');
+
 			var cost_str = "";
 			cost_str += subtotal + " " + tax + " " + total;
 			sessionStorage.setItem("cost_str", cost_str);
@@ -160,9 +168,8 @@
 			document.getElementById('Total').innerHTML += "$" + total.toFixed(2);
 		</script>  
 		<br><br>
-		<a href="order.html" onclick="sendCart()">Place your Order</a>
+		<a href="order.html">Place your Order</a>
 		<br><br>
-
 	</div>
     </body>
 

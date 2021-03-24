@@ -3,25 +3,24 @@
         <meta name='viewport' content="width=device-width, initial-scale=1">
         <title> KMTN Jewelers </title>
         <link rel="stylesheet" type = "text/css" href="styleSheet.css">
+        <style>
+            p,h2 {
+                color: #B39283;
+            }
+        </style>
     </head>
     <body>
         <script language="javascript">
             var orderarray = [];
             // var cartarray = [];
             window.sessionStorage;
-            
-             //RingProduct
-            //this function makes a new ring instance, assigning its name, price and quanity
             function ringProduct(name, price, quant)
             {
                 this.name = name;
                 this.price = price;
                 this.quant = quant;
             }
-            
-            //makeRing
-            //this function makes a new ring when one is ordered, by calling RingProduct and pushing
-            //this instance into the array
+
             function makeRing(array, name, price)
             {
                 need_new = checkOrders(array, name);
@@ -31,9 +30,7 @@
                 }
                 // return orderarray;
             }
-            
-            //checkOrders
-            //this function checks to see if a ring instance is already in the cart and updates the cart quantities
+
             function checkOrders(array, name)
             {
                 for (var i = 0; i < array.length; i++) {
@@ -55,9 +52,7 @@
                 }
                 return true;
             }
-            
-            //OrderNecklace
-            //this function adds the ordered necklace element to the ordered array
+
             function OrderRing(element)
             {
                 name = document.getElementById(element + "-name").innerHTML;
@@ -74,15 +69,33 @@
                     <img id = "logo" align="left" src="logo.jpg">
                 </a>
                 <h1> &nbsp; KMTN Jewelers </h1>
-            <ul>
+            <ul id="nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a class="current" href="productsRings.html">Rings</a></li>
-                <li><a href="productsNecklaces.html">Necklaces</a></li>
-                <li><a href="productsWatches.html">Watches</a></li>
+                    <li id="products_btn"><a class="current" id="p_btn">Our Products</a>
+                    <div id="product_menu">
+                        <div><a class="current" href="productsRings.html">Rings</a></div>
+                        <div><a href="productsNecklaces.html">Necklaces</a></div>
+                        <div><a href="productsWatches.html">Watches</a></div>
+                    </div>
+                    </li>
                 <li><a href="cart.html">Cart</a></li>
             </ul>
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <script language="javascript">
+
+                $(document).ready(function() {
+                    $("#product_menu").hide();
+                });
+
+                $("#products_btn").mouseover(function() {
+                    $("#product_menu").stop().slideDown(500, 'linear');
+                });
+                $("#products_btn").mouseout(function() {
+                    $("#product_menu").stop().slideUp(500, "linear");
+                });
+            </script>
         </header>
         <br>
         <h2>Our Rings</h2> 
@@ -93,8 +106,8 @@
         <div class='leftCol'>
             <hr #808080>
             <div id='ring1'>
-                <img id='productImg' name='productImg' src='ring1.jpg'>
-                <p id='ring1-name'>Ring 1</p>
+                <img id='productImg' name='productImg' src='Simple_Gold_Diamond_Ring.jpg'>
+                <p id='ring1-name'>Simple Gold Diamond Ring</p>
                 <p id='ring1-price'>$1400.00</p>
                 <div id='order'>
                     <a href="#" id="order-product" onclick="OrderRing('ring1')">Add to cart</a>
@@ -103,8 +116,8 @@
             
             <hr #808080>
             <div id='ring4'>
-                <img id='productImg' name='productImg' src='ring4.jpg'>
-                <p id='ring4-name'>Ring 4</p>
+                <img id='productImg' name='productImg' src='White_Pear_Shaped_Ring.jpg'>
+                <p id='ring4-name'>White Pear Shaped Ring</p>
                 <p id='ring4-price'>$1380.00</p>
 
                 <div id='order'>
@@ -114,11 +127,11 @@
             <hr #808080>
             
             <div id='ring7'>
-                <img id='productImg' name='productImg' src='ring7.jpg'>
-                <p id='ring7-name'>Ring 7</p>
+                <img id='productImg' name='productImg' src='14k_Gold_Diamond_Ring.jpg'>
+                <p id='ring7-name'>14k Gold Diamond Ring</p>
                 <p id='ring7-price'>$1350.00</p>
 
-                <div id='productImg' name='productImg' id='order'>
+                <div id='order'>
                     <a href="#" id="order-product" onclick="OrderRing('ring7')">Add to cart</a>
                 </div>
             </div>
@@ -127,8 +140,8 @@
         <div class='midCol'>
             <hr #808080>
             <div id='ring2'>
-                <img id='productImg' name='productImg' src='ring2.jpg'>
-                <p id='ring2-name'>Ring 2</p>
+                <img id='productImg' name='productImg' src='Aquamarine_Halo_Ring.jpg'>
+                <p id='ring2-name'>Aquamarine Halo Ring</p>
                 <p id='ring2-price'>$1245.00</p>
 
                 <div id='order'>
@@ -137,8 +150,8 @@
             </div>
             <hr #808080>
             <div id='ring5'>
-                <img id='productImg' name='productImg' src='ring5.jpg'>
-                <p id='ring5-name'>Ring 5</p>
+                <img id='productImg' name='productImg' src='Stackable_Rose_Gold_Rings.jpg'>
+                <p id='ring5-name'>Stackable Rose Gold Rings</p>
                 <p id='ring5-price'>$1460.00</p>
 
                 <div id='order'>
@@ -147,8 +160,8 @@
             </div>
             <hr #808080>
             <div id='ring8'>
-                <img id='productImg' name='productImg' src='ring8.jpg'>
-                <p id='ring8-name'>Ring 8</p>
+                <img id='productImg' name='productImg' src='Diamond_Oval_Platinum_Ring.jpg'>
+                <p id='ring8-name'>Diamond Oval Platinum Ring</p>
                 <p id='ring8-price'>$1440.00</p>
 
                 <div id='order'>
@@ -160,8 +173,8 @@
         <div class ='rightCol'>
             <hr #808080>
             <div id='ring3'>
-                <img id='productImg' name='productImg' src='ring3.jpg'>
-                <p id='ring3-name'>Ring 3</p>
+                <img id='productImg' name='productImg' src='Promise_Gold_Ring.jpg'>
+                <p id='ring3-name'>Promise Gold Ring</p>
                 <p id='ring3-price'>$935.00</p>
 
                 <div id='order'>
@@ -170,8 +183,8 @@
             </div>
             <hr #808080>
             <div id='ring6'>
-                <img id='productImg' name='productImg' src='ring6.jpg'>
-                <p id='ring6-name'>Ring 6</p>
+                <img id='productImg' name='productImg' src='Albion_Ring_with_Diamonds.jpg'>
+                <p id='ring6-name'>Albion Ring with Diamonds</p>
                 <p id='ring6-price'>$1235.00</p>
 
                 <div id='order'>
@@ -180,8 +193,8 @@
             </div>
             <hr #808080>
             <div id='ring9'>
-                <img id='productImg' name='productImg' src='Ring9.jpg'>
-                <p id='ring9-name'>Ring 9</p>
+                <img id='productImg' name='productImg' src='Single_Diamond_Ring.jpg'>
+                <p id='ring9-name'>Single Diamond Ring</p>
                 <p id='ring9-price'>$925.00</p>
 
                 <div id='order'>
