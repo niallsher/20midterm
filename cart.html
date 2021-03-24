@@ -22,6 +22,10 @@
         <script language="javascript">
 
             $(document).ready(read());
+			//read
+			//This function reads the gets the quantities in the orderarray and
+			//gets the items in the cartarray. These values are all put into
+			//Jarray. 
 			function read()
 		   	{
 				Jarray = JSON.parse(sessionStorage.getItem("orderarray"));
@@ -37,17 +41,14 @@
 			    }
 			    sessionStorage.setItem("cartarray", JSON.stringify(cartJarray));
 		    }
-
+	    //resetCart
+	    //This function resets the cartarray to empty
             function resetCart()
             {
                 sessionStorage.removeItem("cartarray");
                 location.reload();
             }
 
-            function sendCart()
-            {
-
-            }
 
             
 			
