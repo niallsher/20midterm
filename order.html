@@ -39,7 +39,7 @@
 			#organize_right  {
 				float: right;
 				border: 2px solid #808080;
-				margin-top: 50px;
+				margin-top: 100px;
 
 			}
 
@@ -51,6 +51,52 @@
 			#sideCost p {
 			    margin: 0;
 			    padding: 5px 0px;
+			}
+
+			@media screen and (max-width: 850px) {
+				#checkoutRight {
+					float: none;
+					width: 100%;
+					margin: 20px 0px;
+					margin-right: auto;
+					margin-left: auto;
+
+				}
+
+				#checkoutLeft {
+					float: none;
+					width: 100%;
+					margin-right: auto;
+					margin-left: auto;
+
+				}
+
+				#checkoutLeft p {
+					/*float: none;*/
+					width: 50%;
+					margin-right: auto;
+					margin-left: auto;
+
+				}
+				#checkoutLeft div,form {
+					/*float: none;*/
+					/*width: 50%;*/
+					margin-right: auto;
+					margin-left: auto;
+					text-align: center;
+
+				}
+
+				#organize_right {
+					float: none;
+					margin-top: 20px;
+					width: 300px;
+					margin-right: auto;
+					margin-left: auto;
+					/*position: relative;*/
+				}
+
+
 			}
 		</style>
 		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -196,45 +242,38 @@
                     <img id = "logo" align="left" src="logo.jpg">
                 </a>
 				<h1> &nbsp; KMTN Jewelers </h1>
-            <ul>
+            <ul id="nav">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="productsRings.html">Rings</a></li>
-                <li><a href="productsNecklaces.html">Necklaces</a></li>
-                <li><a href="productsWatches.html">Watches</a></li>
-    			<li><a href="cart.html">Cart</a></li>
+                    <li id="products_btn"><a id="p_btn">Our Products</a>
+                    <div id="product_menu">
+                        <div><a href="productsRings.html">Rings</a></div>
+                        <div><a href="productsNecklaces.html">Necklaces</a></div>
+                        <div><a href="productsWatches.html">Watches</a></div>
+                    </div>
+                    </li>
+                <li><a href="cart.html">Cart</a></li>
             </ul>
+            <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+            <script language="javascript">
+
+                $(document).ready(function() {
+                    $("#product_menu").hide();
+                });
+
+                $("#products_btn").mouseover(function() {
+                    $("#product_menu").stop().slideDown(500, 'linear');
+                });
+                $("#products_btn").mouseout(function() {
+                    $("#product_menu").stop().slideUp(500, "linear");
+                });
+            </script>
 		</header>
 		<br>
 		<h2>Thank you for your order!</h2>
 		<br>
 		<!-- <div id="checkout"> -->
-			<div id="checkoutLeft">
-				<p>
-					<i>Please enter your information below so we can get you your product(s) to you as soon as possible.</i>
-				</p>
-				
-				<div id="note">Note: * is required field.<br><br></div>
-				
-		        <form name="data">
-					First Name*: <input type="text" id="fName"><div id="errF"  class="err">First Name is a required field.<br><br></div>
-					
-					Last Name*: <input type="text" id="lName"><div id="errL"  class="err">Last Name is a required field.<br><br></div>
-					
-					Address Line 1*: <input type="text" id="addLn1"><br>
-					Address Line 2: <input type="text" id="addLn2"><div id="errA" class="err">Address Line 1 is a required field.<br><br></div>
-					
-					Contact Phone*: <input type="text" id="phone" ><div id="errP"  class="err"><br><br></div>
-					
-					Credit Card Number*: <input type="text" id="credit"><div id="errC" class="err"><br><br></div>
-					
-					CVV*: <input type="text" id="cvv"><div class="err" id="errCVV"><br><br></div>
-							
-					<p> <a href="#" id="order" onclick="validate()">Place Order</a></p>
-					
-				</form>
-			</div>
 			<div id="checkoutRight">
 				<div id="organize_right">
 					<div id='cart'>
@@ -268,6 +307,64 @@
 					</div>
 				</div>
 			</div>
+			<div id="checkoutLeft">
+				<p>
+					<i>Please enter your information below so we can get you your product(s) to you as soon as possible.</i>
+				</p>
+				
+				<div id="note">Note: * is required field.<br><br></div>
+				
+		        <form name="data">
+					First Name*: <input type="text" id="fName"><div id="errF"  class="err">First Name is a required field.<br><br></div>
+					
+					Last Name*: <input type="text" id="lName"><div id="errL"  class="err">Last Name is a required field.<br><br></div>
+					
+					Address Line 1*: <input type="text" id="addLn1"><br>
+					Address Line 2: <input type="text" id="addLn2"><div id="errA" class="err">Address Line 1 is a required field.<br><br></div>
+					
+					Contact Phone*: <input type="text" id="phone" ><div id="errP"  class="err"><br><br></div>
+					
+					Credit Card Number*: <input type="text" id="credit"><div id="errC" class="err"><br><br></div>
+					
+					CVV*: <input type="text" id="cvv"><div class="err" id="errCVV"><br><br></div>
+							
+					<p> <a href="#" id="order" onclick="validate()">Place Order</a></p>
+					
+				</form>
+			</div>
+			<!-- <div id="checkoutRight">
+				<div id="organize_right">
+					<div id='cart'>
+			            <table id='sidecartTable' border="0" cellpadding="5">
+			            	<tr>
+			                	<th>Product</th>
+			                	<th>Price</th>
+			                	<th>Qty.</th>
+			              	</tr>
+
+			              	<script language="javascript">
+								cartJarr = JSON.parse(sessionStorage.getItem("cartarray"));
+				            	var s = "";
+				            	for (i = 0; i < cartJarr.length; i++)
+				            	{
+				            		var namearr = cartJarr[i].name.split(" ");
+
+				                	s += "<tr><td>" + cartJarr[i].name + "</td>";
+				                	s += "<td> " + cartJarr[i].price + "</td>";
+				                	s += "<td> " + cartJarr[i].quant + "</td></tr>";
+				            	}
+				            	document.writeln(s);
+					        </script>            	
+			        	</table>
+			        </div>
+					<div id="sideCost">
+						<p id="Subtotal">Subtotal: </p>
+						<p id="Tax">Tax: </p>
+						<p id="Total">Total: </p>
+
+					</div>
+				</div>
+			</div> -->
 
 			<script language="javascript">
 				var cost_str = sessionStorage.getItem("cost_str");
