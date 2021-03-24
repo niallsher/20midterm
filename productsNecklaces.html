@@ -25,6 +25,9 @@
             var orderarray = [];
             // var cartarray = [];
             window.sessionStorage;
+            
+            //NecklaceProduct
+            //this function makes a new necklace instance, assigning its name, price and quanity
             function NecklaceProduct(name, price, quant)
             {
                 this.name = name;
@@ -32,6 +35,9 @@
                 this.quant = quant;
             }
             
+            //makeNecklace
+            //this function makes a new necklace when one is ordered, by calling NecklaceProduct and pushing
+            //this instance into the array
             function makeNecklace(array, name, price)
             {
                 need_new = checkOrders(array, name);
@@ -41,7 +47,7 @@
                 }
                 // return orderarray;
             }
-
+                
             function checkOrders(array, name)
             {
                 for (var i = 0; i < array.length; i++) {
@@ -63,7 +69,9 @@
                 }
                 return true;
             }
-
+            
+            //OrderNecklace
+            //this function adds the ordered necklace element to the ordered array
             function OrderNecklace(element)
             {
                 name = document.getElementById(element + "-name").innerHTML;
